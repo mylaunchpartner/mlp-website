@@ -80,6 +80,8 @@ html, body { overflow-x: clip !important; }
 }
 #mlp-fs .mlp-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--grad); box-shadow: 0 0 10px var(--neon-p); }
 #mlp-fs .mlp-section { padding: 112px 0; position: relative; }
+/* Keep section tops clear of the fixed menu when jumping to #anchors */
+#mlp-fs [id^="mlp-"] { scroll-margin-top: calc(var(--nav-h) + 8px); }
 #mlp-fs .mlp-head { max-width: 740px; margin: 0 auto 60px; text-align: center; }
 #mlp-fs .mlp-head h2 { font-size: clamp(2rem, 4vw, 3.15rem); letter-spacing: -0.03em; margin-bottom: 16px; }
 #mlp-fs .mlp-head p { font-size: 1.1rem; }
