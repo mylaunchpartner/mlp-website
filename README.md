@@ -27,7 +27,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="home"></div>
-<script src="https://YOUR-GITHUB-USERNAME.github.io/mlp-website/loader.js"></script>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
 ### `/specialty-industries/fitness-coaches`
@@ -37,7 +37,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="specialty/fitness-coaches"></div>
-<script src="https://YOUR-GITHUB-USERNAME.github.io/mlp-website/loader.js"></script>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
 ### `/specialty-industries/gyms-fitness-studios`
@@ -47,7 +47,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="specialty/gyms-fitness-studios"></div>
-<script src="https://YOUR-GITHUB-USERNAME.github.io/mlp-website/loader.js"></script>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
 ### `/specialty-industries/in-person-retreats`
@@ -57,7 +57,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="specialty/in-person-retreats"></div>
-<script src="https://YOUR-GITHUB-USERNAME.github.io/mlp-website/loader.js"></script>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
 ### `/specialty-industries/payment-processors`
@@ -67,7 +67,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="specialty/payment-processors"></div>
-<script src="https://YOUR-GITHUB-USERNAME.github.io/mlp-website/loader.js"></script>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
 ### `/specialty-industries/ruo-peptides-and-chemicals`
@@ -77,7 +77,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="specialty/ruo-peptides-and-chemicals"></div>
-<script src="https://YOUR-GITHUB-USERNAME.github.io/mlp-website/loader.js"></script>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
 ### `/specialty-industries/waste-management`
@@ -87,7 +87,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="specialty/waste-management"></div>
-<script src="https://YOUR-GITHUB-USERNAME.github.io/mlp-website/loader.js"></script>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
 ## Adding a new page
