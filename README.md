@@ -15,6 +15,8 @@ Source for the mylaunchpartner.ai pages that run inside GoHighLevel. Each GHL pa
 | `partials/sprite.svg` | Icon set. |
 | `pages/home.html` | Homepage content. |
 | `pages/specialty/*.html` | One file per specialty industry page. |
+| `pages/privacy-policy.html`, `pages/terms.html` | Legal pages (linked in the footer). |
+| `assets/logo.png`, `assets/favicon.png` | Logo (menu) and browser-tab icon. Favicon URL in GHL website settings: `https://mylaunchpartner.github.io/mlp-website/assets/favicon.png` |
 
 ## GHL setup (one time per page)
 
@@ -87,6 +89,26 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ```html
 <div id="mlp-root" data-page="specialty/waste-management"></div>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
+```
+
+### `/privacy-policy`
+
+- **SEO title:** Privacy Policy | My Launch Partner
+- **SEO description:** How My Launch Partner collects, uses and protects your information, including text message (SMS) terms.
+
+```html
+<div id="mlp-root" data-page="privacy-policy"></div>
+<script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
+```
+
+### `/terms`
+
+- **SEO title:** Terms of Use | My Launch Partner
+- **SEO description:** Terms for using mylaunchpartner.ai, including text messaging terms.
+
+```html
+<div id="mlp-root" data-page="terms"></div>
 <script src="https://mylaunchpartner.github.io/mlp-website/loader.js"></script>
 ```
 
