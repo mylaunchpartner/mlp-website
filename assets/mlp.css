@@ -86,16 +86,6 @@ html, body { overflow-x: clip !important; }
 #mlp-fs .mlp-head h2 { font-size: clamp(2rem, 4vw, 3.15rem); letter-spacing: -0.03em; margin-bottom: 16px; }
 #mlp-fs .mlp-head p { font-size: 1.1rem; }
 
-/* Blueprint grid used as a section texture */
-#mlp-fs .mlp-grid-bg::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(99,87,246,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99,87,246,0.07) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 25%, transparent 80%);
-          mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 25%, transparent 80%);
-}
 
 /* ── Buttons ──────────────────────────────────────────────── */
 #mlp-fs .mlp-btn {
@@ -180,15 +170,6 @@ html, body { overflow-x: clip !important; }
 
 /* ── HERO ─────────────────────────────────────────────────── */
 #mlp-fs .mlp-hero { padding: calc(var(--nav-h) + 92px) 0 104px; overflow: hidden; background: linear-gradient(180deg, #fbfbff 0%, #f3f2ff 100%); }
-#mlp-fs .mlp-hero::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(99,87,246,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99,87,246,0.08) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, #000 30%, transparent 78%);
-          mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, #000 30%, transparent 78%);
-}
 #mlp-fs .mlp-aurora { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 #mlp-fs .mlp-aurora i { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; animation: mlp-drift 18s ease-in-out infinite alternate; }
 #mlp-fs .mlp-aurora i:nth-child(1) { width: 520px; height: 520px; left: -120px; top: -80px; background: #c4b5fd; }
@@ -290,7 +271,6 @@ html, body { overflow-x: clip !important; }
   box-shadow: 0 24px 50px -24px rgba(59,130,246,0.65);
   position: relative; overflow: hidden;
 }
-#mlp-fs .mlp-svc-band::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
 #mlp-fs .mlp-svc-band > * { position: relative; }
 #mlp-fs .mlp-svc-band h4 { font-size: 1.15rem; margin-bottom: 4px; color: #fff; }
 #mlp-fs .mlp-svc-band p { font-size: 15px; color: rgba(255,255,255,0.88); }
@@ -374,13 +354,6 @@ html, body { overflow-x: clip !important; }
 
 /* ── CTA + BOOKING (bright gradient band) ─────────────────── */
 #mlp-fs .mlp-cta { padding: 120px 0; text-align: left; overflow: hidden; background: linear-gradient(125deg, #7c3aed 0%, #4f46e5 35%, #2563eb 65%, #06b6d4 100%); }
-#mlp-fs .mlp-cta::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 30% 40%, #000 20%, transparent 80%);
-          mask-image: radial-gradient(ellipse 80% 80% at 30% 40%, #000 20%, transparent 80%);
-}
 #mlp-fs .mlp-cta::after { content: ''; position: absolute; width: 700px; height: 700px; right: -200px; top: -300px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,255,255,0.28), transparent); pointer-events: none; }
 #mlp-fs .mlp-cta h2 { color: #fff; letter-spacing: -0.035em; margin-bottom: 18px; }
 #mlp-fs .mlp-cta .mlp-grad-text { background: linear-gradient(90deg, #ffffff, #cffafe); -webkit-background-clip: text; background-clip: text; }
@@ -540,3 +513,20 @@ html, body { overflow-x: clip !important; }
   #mlp-fs .mlp-fit-card { grid-template-columns: 1fr; padding: 26px 22px; gap: 16px; }
   #mlp-fs .mlp-fit-ico { width: 52px; height: 52px; border-radius: 14px; }
 }
+
+/* ── LEGAL PAGES (privacy policy, terms) ──────────────────── */
+#mlp-fs .mlp-legal-hero { padding: calc(var(--nav-h) + 72px) 0 36px; background: linear-gradient(180deg, #fbfbff 0%, #f3f2ff 100%); }
+#mlp-fs .mlp-legal-wrap { max-width: 820px; }
+#mlp-fs .mlp-legal-hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: -0.03em; margin-bottom: 12px; }
+#mlp-fs .mlp-legal-date { font-family: var(--mono); font-size: 13px; color: var(--faint); }
+#mlp-fs .mlp-legal { padding: 48px 0 96px; background: var(--bg-2); }
+#mlp-fs .mlp-legal-body h2 { font-size: 1.35rem; letter-spacing: -0.01em; margin: 40px 0 12px; }
+#mlp-fs .mlp-legal-body h2:first-child { margin-top: 0; }
+#mlp-fs .mlp-legal-body h3 { font-size: 1.05rem; margin: 22px 0 8px; }
+#mlp-fs .mlp-legal-body p { color: var(--text); margin: 0 0 14px; }
+#mlp-fs .mlp-legal-body ul { list-style: disc; padding-left: 22px; margin: 0 0 16px; color: var(--text); }
+#mlp-fs .mlp-legal-body li { margin: 6px 0; }
+#mlp-fs .mlp-legal-body a { color: var(--purple); text-decoration: underline; text-underline-offset: 2px; }
+#mlp-fs .mlp-foot-legal a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+#mlp-fs .mlp-foot-legal a:hover { color: var(--purple); }
+#mlp-fs .mlp-foot-bot span.mlp-foot-legal { font-family: var(--font); font-size: 13.5px; letter-spacing: normal; margin-left: 8px; }
