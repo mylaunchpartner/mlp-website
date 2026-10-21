@@ -20,7 +20,7 @@ Source for the mylaunchpartner.ai pages that run inside GoHighLevel. Each GHL pa
 
 ## GHL setup (one time per page)
 
-In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS/HTML** element → paste that page's snippet. Put the SEO title and description in the page's **SEO Meta Data** settings.
+In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS/HTML** element → paste that page's snippet. Put the SEO title and description in the page builder's **SEO & AI search optimization** panel (keep titles under 70 characters). Set the live URL in Websites → Pages → ⋮ → Settings → Path; the builder's own "URL Path/Slug" must be something different (e.g. `/home-page-terms-step`) or GHL adds a number to the path.
 
 ### `/`
 
@@ -54,7 +54,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ### `/specialty-industries/in-person-retreats`
 
-- **SEO title:** Marketing for Retreat Hosts & In-Person Experiences | My Launch Partner
+- **SEO title:** Marketing for Retreat Hosts | My Launch Partner
 - **SEO description:** Launch campaigns, retreat sales pages, deposit and payment plan funnels, venue video and guest CRM automations for retreat hosts.
 
 ```html
@@ -64,7 +64,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ### `/specialty-industries/payment-processors`
 
-- **SEO title:** Marketing for Payment Processors, ISOs & Merchant Services | My Launch Partner
+- **SEO title:** Payment Processor & ISO Marketing | My Launch Partner
 - **SEO description:** Merchant lead generation, agent recruiting funnels, underwriting pipelines and CRM for payment processors, ISOs and merchant services agents.
 
 ```html
@@ -74,7 +74,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ### `/specialty-industries/ruo-peptides-and-chemicals`
 
-- **SEO title:** Marketing for RUO Peptide & Research Chemical Suppliers | My Launch Partner
+- **SEO title:** RUO Peptide & Research Chemical Marketing | My Launch Partner
 - **SEO description:** Compliance-first websites, email and SMS, CRM and creative for research-use-only peptide and chemical suppliers. One full-stack team.
 
 ```html
@@ -84,7 +84,7 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 
 ### `/specialty-industries/waste-management`
 
-- **SEO title:** Marketing for Waste Management, Dumpster Rental & Junk Removal | My Launch Partner
+- **SEO title:** Waste Management & Dumpster Rental Marketing | My Launch Partner
 - **SEO description:** Google Ads, service-area websites, speed-to-lead CRM and video for dumpster rental, junk removal and waste hauling companies.
 
 ```html
