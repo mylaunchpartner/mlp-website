@@ -1,0 +1,136 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  html, body { overflow-x: hidden; }
+  .mlp-ty { --navy:#0B1026; --ink:#283052; --muted:#5B6482; --violet:#7C3AED; --violet-2:#5B21B6; --lilac:#C4B5FD; --ground:#F6F7FC; --line:#E2E5F0;
+    position: relative; left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--ink); background: var(--ground);
+    -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mlp-ty *, .mlp-ty *::before, .mlp-ty *::after { box-sizing: border-box; }
+  .mlp-ty h1, .mlp-ty h2, .mlp-ty h3, .mlp-ty p { margin: 0; }
+  .mlp-ty .mlp-in { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  .mlp-ty .bar { background: var(--navy); }
+  .mlp-ty .bar .mlp-in { max-width: 1120px; padding-top: 14px; padding-bottom: 14px; }
+  .mlp-ty .brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 17px; text-decoration: none; }
+  .mlp-ty .brand img { width: 34px; height: 34px; display: block; }
+
+  .mlp-ty .hero { position: relative; overflow: hidden; background: var(--navy); color: #fff; text-align: center; padding: 48px 0 104px; }
+  .mlp-ty .glow { position: absolute; border-radius: 50%; filter: blur(110px); pointer-events: none; }
+  .mlp-ty .glow.a { width: 600px; height: 600px; left: -180px; top: -260px; background: rgba(124,58,237,.5); }
+  .mlp-ty .glow.b { width: 520px; height: 520px; right: -200px; bottom: -280px; background: rgba(34,211,238,.28); }
+  .mlp-ty .check { position: relative; width: 76px; height: 76px; margin: 0 auto 22px; border-radius: 50%; background: rgba(196,181,253,.16); border: 2px solid var(--lilac); display: grid; place-items: center; }
+  .mlp-ty .kicker { position: relative; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; letter-spacing: .14em; color: var(--lilac); margin-bottom: 14px; }
+  .mlp-ty .hero h1 { position: relative; font-weight: 800; font-size: clamp(34px, 5vw, 56px); line-height: 1.05; letter-spacing: -.03em; }
+  .mlp-ty .hero p { position: relative; margin: 18px auto 0; max-width: 600px; font-size: 19px; color: #D4D8E8; }
+
+  .mlp-ty .steps { position: relative; margin-top: -72px; display: grid; gap: 16px; }
+  .mlp-ty .step { background: #fff; border: 1.5px solid var(--line); border-radius: 20px; padding: 26px 28px; display: grid; grid-template-columns: 52px 1fr auto; gap: 20px; align-items: center; box-shadow: 0 14px 40px rgba(11,16,38,.08); }
+  .mlp-ty .step.now { border-color: var(--violet); box-shadow: 0 18px 48px rgba(124,58,237,.18); }
+  .mlp-ty .num { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 16px; background: var(--ground); color: var(--muted); }
+  .mlp-ty .step.now .num { background: var(--violet); color: #fff; }
+  .mlp-ty .step.done .num { background: #D1FAE5; color: #047857; }
+  .mlp-ty .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--violet); }
+  .mlp-ty .step.done .tag { color: #047857; }
+  .mlp-ty .step h3 { margin-top: 2px; font-size: 20px; font-weight: 800; color: var(--navy); }
+  .mlp-ty .step p { margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .mlp-ty .btn { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; background: var(--violet); color: #fff !important; text-decoration: none; font-weight: 800; font-size: 16px; padding: 14px 22px; border-radius: 999px; box-shadow: 0 8px 24px rgba(124,58,237,.35); transition: background .15s, transform .15s; }
+  .mlp-ty .btn:hover { background: var(--violet-2); transform: translateY(-1px); }
+  .mlp-ty .btn.ghost { background: #fff; color: var(--violet) !important; border: 1.5px solid var(--violet); box-shadow: none; }
+  .mlp-ty .btn.ghost:hover { background: #F5F3FF; }
+  .mlp-ty .btn:focus-visible { outline: 3px solid var(--lilac); outline-offset: 3px; }
+
+  .mlp-ty .need { margin-top: 32px; background: #fff; border-radius: 20px; border: 1.5px solid var(--line); padding: 30px 28px; }
+  .mlp-ty .need h2 { font-size: 22px; font-weight: 800; color: var(--navy); }
+  .mlp-ty .need > p { margin-top: 6px; color: var(--muted); font-size: 15px; }
+  .mlp-ty .need ul { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+  .mlp-ty .need li { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; color: var(--ink); }
+  .mlp-ty .need li svg { flex-shrink: 0; margin-top: 3px; }
+
+  .mlp-ty .follow { margin: 36px 0 0; padding-bottom: 52px; text-align: center; }
+  .mlp-ty .follow h2 { font-size: 24px; font-weight: 800; color: var(--navy); }
+  .mlp-ty .follow p { margin-top: 8px; color: var(--muted); font-size: 16px; }
+  .mlp-ty .follow .btn { margin-top: 18px; }
+  .mlp-ty .foot { margin-top: 28px; font-size: 13px; color: var(--muted); }
+  .mlp-ty .foot a { color: var(--muted); }
+
+  @media (max-width: 720px) {
+    .mlp-ty .hero { padding: 40px 0 96px; }
+    .mlp-ty .step { grid-template-columns: 44px 1fr; padding: 22px; }
+    .mlp-ty .num { width: 44px; height: 44px; }
+    .mlp-ty .step .btn { grid-column: 1 / -1; justify-content: center; }
+    .mlp-ty .need ul { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="mlp-ty" id="mlp-ty">
+  <div class="bar"><div class="mlp-in">
+    <a class="brand" href="https://mylaunchpartner.ai"><img src="https://mylaunchpartner.github.io/mlp-website/assets/logo.png" alt="">My Launch Partner</a>
+  </div></div>
+
+  <section class="hero">
+    <div class="glow a" aria-hidden="true"></div><div class="glow b" aria-hidden="true"></div>
+    <div class="mlp-in">
+      <div class="check"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
+      <div class="kicker">PAYMENT RECEIVED · $1</div>
+      <h1>You're in. Your audit is on the way.</h1>
+      <p>Two quick things and we'll get started. A receipt is headed to your inbox now.</p>
+    </div>
+  </section>
+
+  <div class="mlp-in">
+    <div class="steps">
+      <div class="step done">
+        <div class="num">✓</div>
+        <div><div class="tag">DONE</div><h3>Audit claimed</h3><p>Your $1 payment went through.</p></div>
+        <div></div>
+      </div>
+      <div class="step now">
+        <div class="num">02</div>
+        <div><div class="tag">DO THIS NOW · 2 MIN</div><h3>Tell us about your business</h3><p>We can't start your audit until we have these.</p></div>
+        <a class="btn" href="[INTAKE FORM LINK]">Fill out the form <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div><div class="tag">NEXT</div><h3>Book your walkthrough call</h3><p>We'll go over your audit together and show you the fastest fixes.</p></div>
+        <a class="btn ghost" href="[BOOKING LINK]">Pick a time <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="need">
+      <h2>What we'll ask for</h2>
+      <p>Have these handy and the form takes two minutes.</p>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Your website (if you have one)</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>The city or area you serve</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>5 searches you want to show up for</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>2–3 competitors you keep losing to</li>
+      </ul>
+    </div>
+
+    <div class="follow">
+      <h2>While you wait</h2>
+      <p>We post memes about running a business that are a little too accurate.</p>
+      <a class="btn ghost" href="https://www.instagram.com/mylaunchpartner/" target="_blank" rel="noopener">Follow @mylaunchpartner</a>
+      <div class="foot">Questions? Reply to your receipt email. · <a href="https://mylaunchpartner.ai">mylaunchpartner.ai</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Full-width breakout for GHL: clears the padding and max-width GHL puts on this element's section, row and column. */
+(function () {
+  var root = document.getElementById('mlp-ty');
+  if (!root) return;
+  var el = root.parentElement;
+  while (el && el !== document.body) {
+    var c = el.className || '';
+    if (typeof c === 'string' && /(^|\s)(c-section|c-row|c-column|c-wrapper|inner|container|fullSection|c-custom-code|custom-code-container)(\s|$)/.test(c)) {
+      el.style.paddingLeft = '0'; el.style.paddingRight = '0'; el.style.maxWidth = 'none';
+      if (/c-section|fullSection/.test(c)) { el.style.paddingTop = '0'; el.style.paddingBottom = '0'; }
+      el.style.overflow = 'visible';
+    }
+    el = el.parentElement;
+  }
+})();
+</script>

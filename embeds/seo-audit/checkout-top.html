@@ -1,0 +1,262 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  html, body { overflow-x: hidden; }
+  .mlp-wrap { --navy:#0B1026; --ink:#283052; --muted:#5B6482; --violet:#7C3AED; --violet-2:#5B21B6; --lilac:#C4B5FD; --ground:#F6F7FC; --line:#E2E5F0;
+    position: relative; left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--ink); background: #fff;
+    -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mlp-wrap *, .mlp-wrap *::before, .mlp-wrap *::after { box-sizing: border-box; }
+  .mlp-wrap h1, .mlp-wrap h2, .mlp-wrap h3, .mlp-wrap p { margin: 0; }
+  .mlp-in { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  .mlp-bar { background: var(--navy); }
+  .mlp-bar .mlp-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .mlp-brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 17px; text-decoration: none; }
+  .mlp-brand img { width: 34px; height: 34px; display: block; }
+  .mlp-bar-note { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--lilac); }
+
+  .mlp-hero { position: relative; overflow: hidden; background: var(--navy); color: #fff; padding: 52px 0 60px; }
+  .mlp-glow { position: absolute; border-radius: 50%; filter: blur(110px); pointer-events: none; }
+  .mlp-glow.a { width: 620px; height: 620px; left: -200px; top: -240px; background: rgba(124,58,237,.5); }
+  .mlp-glow.b { width: 560px; height: 560px; right: -220px; bottom: -260px; background: rgba(34,211,238,.28); }
+  .mlp-hero .mlp-in { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+  .mlp-kicker { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; letter-spacing: .14em; color: var(--lilac); margin-bottom: 18px; }
+  .mlp-hero h1 { font-weight: 800; font-size: clamp(36px, 5.2vw, 60px); line-height: 1.04; letter-spacing: -.03em; }
+  .mlp-hero h1 span { color: var(--lilac); }
+  .mlp-hero p.mlp-sub { margin-top: 20px; font-size: 19px; color: #D4D8E8; max-width: 560px; }
+  .mlp-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; background: var(--violet); color: #fff !important; text-decoration: none;
+    font-weight: 800; font-size: 19px; padding: 18px 30px; border-radius: 999px; box-shadow: 0 10px 30px rgba(124,58,237,.45); transition: transform .15s, background .15s; }
+  .mlp-cta:hover { background: var(--violet-2); transform: translateY(-1px); }
+  .mlp-cta:focus-visible { outline: 3px solid var(--lilac); outline-offset: 3px; }
+  .mlp-fine { margin-top: 14px; font-size: 14px; color: #AEB4CC; }
+
+  .mlp-card { background: #fff; color: var(--ink); border-radius: 22px; padding: 26px 26px 22px; box-shadow: 0 30px 70px rgba(0,0,0,.35); }
+  .mlp-card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .mlp-card-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--muted); }
+  .mlp-card-site { font-weight: 800; font-size: 20px; color: var(--navy); }
+  .mlp-score { width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; border: 8px solid #F43F5E; display: grid; place-items: center; font-weight: 800; font-size: 22px; color: var(--navy); }
+  .mlp-card hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0 12px; }
+  .mlp-row { display: flex; align-items: center; gap: 10px; font-size: 15px; padding: 7px 0; }
+  .mlp-row i { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .mlp-row b { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  .mlp-card-note { margin-top: 10px; font-size: 12px; color: var(--muted); }
+
+  .mlp-sec { padding: 52px 0; }
+  .mlp-sec.alt { background: var(--ground); }
+  .mlp-h2 { font-weight: 800; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; letter-spacing: -.02em; color: var(--navy); text-align: center; }
+  .mlp-wrap .mlp-lede { text-align: center; color: var(--muted); font-size: 18px; margin: 12px auto 0; max-width: 640px; }
+  .mlp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+  .mlp-item { background: #fff; border: 1.5px solid var(--line); border-radius: 18px; padding: 24px; }
+  .mlp-item svg { display: block; margin-bottom: 14px; }
+  .mlp-item h3 { font-size: 18px; font-weight: 700; color: var(--navy); }
+  .mlp-item p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+
+  .mlp-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; counter-reset: s; }
+  .mlp-step { position: relative; background: #fff; border-radius: 18px; padding: 26px 24px; border: 1.5px solid var(--line); }
+  .mlp-step .n { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; color: var(--violet); }
+  .mlp-step h3 { margin-top: 8px; font-size: 19px; font-weight: 700; color: var(--navy); }
+  .mlp-step p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+
+  .mlp-why { max-width: 820px; margin: 0 auto; background: var(--navy); color: #fff; border-radius: 24px; padding: 40px; position: relative; overflow: hidden; }
+  .mlp-why .mlp-glow.a { width: 380px; height: 380px; right: -140px; top: -160px; left: auto; }
+  .mlp-why h2 { position: relative; font-weight: 800; font-size: 30px; letter-spacing: -.02em; }
+  .mlp-why p { position: relative; margin-top: 12px; font-size: 17px; color: #D4D8E8; }
+  .mlp-why p b { color: #fff; }
+
+  .mlp-order-head { padding: 40px 0 4px; text-align: center; background: #fff; }
+  .mlp-order-head .mlp-kicker { color: var(--violet); margin-bottom: 10px; }
+  .mlp-order-head h2 { font-weight: 800; font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -.02em; color: var(--navy); }
+  .mlp-order-head p { margin-top: 10px; color: var(--muted); font-size: 16px; }
+  .mlp-lock { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 14px; color: var(--muted); }
+
+
+  .mlp-proof { background: var(--ground); padding: 52px 0; }
+  .mlp-proof-card { background: #fff; border: 1.5px solid var(--line); border-radius: 22px; padding: 32px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: start; }
+  .mlp-proof .mlp-kicker { color: var(--violet); margin-bottom: 10px; }
+  .mlp-proof h2 { font-weight: 800; font-size: clamp(24px, 3vw, 32px); line-height: 1.15; letter-spacing: -.02em; color: var(--navy); }
+  .mlp-proof p.lead { margin-top: 10px; color: var(--muted); font-size: 16px; }
+  .mlp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+  .mlp-stat { background: var(--ground); border-radius: 14px; padding: 14px 16px; }
+  .mlp-stat b { display: block; font-size: 28px; font-weight: 800; color: var(--violet); letter-spacing: -.02em; line-height: 1.1; }
+  .mlp-stat span { display: block; margin-top: 4px; font-size: 13px; color: var(--muted); }
+  .mlp-ranks { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .mlp-ranks caption { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--muted); padding-bottom: 10px; }
+  .mlp-ranks td { padding: 10px 0; border-top: 1px solid var(--line); color: var(--ink); }
+  .mlp-ranks td.pos { text-align: right; white-space: nowrap; }
+  .mlp-ranks .pill { display: inline-block; min-width: 38px; text-align: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; padding: 4px 8px; border-radius: 999px; background: #EDE9FE; color: var(--violet-2); }
+  .mlp-ranks .pill.top { background: var(--violet); color: #fff; }
+  .mlp-proof-note { margin-top: 12px; font-size: 12px; color: var(--muted); }
+
+  /* Keeps GHL's native order form a readable width after the full-width breakout. */
+  .c-order-form { width: 100% !important; max-width: 680px !important; margin: 8px auto 40px !important; box-sizing: border-box; }
+
+  @media (max-width: 860px) {
+    .mlp-hero { padding: 40px 0 48px; }
+    .mlp-hero .mlp-in { grid-template-columns: 1fr; gap: 40px; }
+    .mlp-grid, .mlp-steps { grid-template-columns: 1fr; }
+    .mlp-proof { padding: 40px 0; }
+    .mlp-proof-card { grid-template-columns: 1fr; gap: 24px; padding: 22px; }
+    .mlp-sec { padding: 40px 0; }
+    .mlp-bar-note { display: none; }
+    .mlp-why { padding: 28px; }
+  }
+</style>
+
+<div class="mlp-wrap" id="mlp-top">
+  <div class="mlp-bar"><div class="mlp-in">
+    <a class="mlp-brand" href="https://mylaunchpartner.ai"><img src="https://mylaunchpartner.github.io/mlp-website/assets/logo.png" alt="">My Launch Partner</a>
+    <span class="mlp-bar-note">PERFORMANCE-BASED SEO</span>
+  </div></div>
+
+  <section class="mlp-hero">
+    <div class="mlp-glow a" aria-hidden="true"></div><div class="mlp-glow b" aria-hidden="true"></div>
+    <div class="mlp-in">
+      <div>
+        <div class="mlp-kicker">FULL SEO AUDIT · $1</div>
+        <h1>Find out exactly why Google isn't sending you <span>customers.</span></h1>
+        <p class="mlp-sub">A full SEO audit of your business for one dollar. See where you rank, who's beating you, and your fastest fixes. If you want our help after, you only pay us when you hit page 1.</p>
+        <a class="mlp-cta" href="#mlp-order">Get my audit for $1 <span aria-hidden="true">→</span></a>
+        <p class="mlp-fine">One-time $1 charge · No subscription · Delivered within [3] business days</p>
+      </div>
+      <div class="mlp-card" role="img" aria-label="Example audit summary with a score of 42 and four findings">
+        <div class="mlp-card-top">
+          <div><div class="mlp-card-label">SAMPLE AUDIT</div><div class="mlp-card-site">yourbusiness.com</div></div>
+          <div class="mlp-score">42</div>
+        </div>
+        <hr>
+        <div class="mlp-row"><i style="background:#F43F5E"></i>Slow on mobile<b style="color:#BE123C">FIX</b></div>
+        <div class="mlp-row"><i style="background:#F43F5E"></i>Missing from Maps top 3<b style="color:#BE123C">FIX</b></div>
+        <div class="mlp-row"><i style="background:#D97706"></i>3 competitors outranking you<b style="color:#B45309">WATCH</b></div>
+        <div class="mlp-row"><i style="background:#059669"></i>12 keywords you could own<b style="color:#047857">WIN</b></div>
+        <p class="mlp-card-note">Example only. Your audit uses your real data.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="mlp-proof">
+    <div class="mlp-in">
+      <div class="mlp-proof-card">
+        <div>
+          <div class="mlp-kicker">REAL RESULTS · LOUISVILLE LEAD INSPECTIONS</div>
+          <h2>A brand-new site on page 1 of Google in two weeks.</h2>
+          <p class="lead">We launched Louisville Lead Inspections' new site on Oct 7, 2026, then ran the same playbook we'll show you in your audit: fix the technical issues, build the service pages, and publish local content every weekday.</p>
+          <div class="mlp-stats" id="lli-stats">
+            <div class="mlp-stat"><b>#1</b><span>for "louisville lead inspections"</span></div>
+            <div class="mlp-stat"><b>8 of 12</b><span>target searches on page 1</span></div>
+            <div class="mlp-stat"><b>130+</b><span>local articles published in 5 weeks</span></div>
+            <div class="mlp-stat"><b>2 weeks</b><span>from launch to page 1</span></div>
+          </div>
+        </div>
+        <div>
+          <table class="mlp-ranks">
+            <caption id="lli-caption">GOOGLE POSITION · NOV 9, 2026</caption>
+            <tbody id="lli-ranks">
+              <tr><td>louisville lead inspections</td><td class="pos"><span class="pill top">#1</span></td></tr>
+              <tr><td>pre-purchase lead inspection louisville</td><td class="pos"><span class="pill top">#2</span></td></tr>
+              <tr><td>section 8 lead inspection louisville</td><td class="pos"><span class="pill top">#3</span></td></tr>
+              <tr><td>louisville lead notice</td><td class="pos"><span class="pill">#4</span></td></tr>
+              <tr><td>louisville lead testing rental</td><td class="pos"><span class="pill">#6</span></td></tr>
+              <tr><td>lead inspection louisville</td><td class="pos"><span class="pill">#7</span></td></tr>
+            </tbody>
+          </table>
+          <p class="mlp-proof-note">Organic (non-map) Google results, checked weekly. Rankings move week to week; these are from our <span id="lli-date">Nov 9, 2026</span> check.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mlp-sec">
+    <div class="mlp-in">
+      <h2 class="mlp-h2">What's in your $1 audit</h2>
+      <p class="mlp-lede">The same audit we run before we take on a client, written in plain English.</p>
+      <div class="mlp-grid">
+        <div class="mlp-item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><h3>Site health check</h3><p>Technical issues that quietly keep Google from ranking you.</p></div>
+        <div class="mlp-item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><h3>Where you rank today</h3><p>Your real positions for the searches your customers actually type.</p></div>
+        <div class="mlp-item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><h3>Google Maps &amp; Business Profile</h3><p>Whether you show up in the map pack, and what's holding you back.</p></div>
+        <div class="mlp-item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><h3>Competitor comparison</h3><p>Who's beating you for your best keywords, and why.</p></div>
+        <div class="mlp-item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><h3>Speed &amp; mobile</h3><p>How fast your site loads on the phones most of your visitors use.</p></div>
+        <div class="mlp-item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><h3>Your fastest wins</h3><p>A short, prioritized list of fixes that will move the needle first.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mlp-sec alt">
+    <div class="mlp-in">
+      <h2 class="mlp-h2">How it works</h2>
+      <div class="mlp-steps">
+        <div class="mlp-step"><div class="n">01</div><h3>Grab your audit for $1</h3><p>Checkout takes about a minute. No subscription, no upsell trap.</p></div>
+        <div class="mlp-step"><div class="n">02</div><h3>Tell us about your business</h3><p>Your website, the searches you want to win, and who your competitors are.</p></div>
+        <div class="mlp-step"><div class="n">03</div><h3>Walk through it together</h3><p>We go over your audit on a quick call and show you exactly what to fix.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mlp-sec">
+    <div class="mlp-in">
+      <div class="mlp-why">
+        <div class="mlp-glow a" aria-hidden="true"></div>
+        <h2>Why only $1?</h2>
+        <p>Because you should see the problems before anyone asks you for real money. Most owners have no idea why they're not showing up on Google. This tells you.</p>
+        <p>And if you want us to fix it, <b>you only pay when your keywords hit page 1.</b> No results, no performance fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="mlp-order-head" id="mlp-order">
+    <div class="mlp-in">
+      <div class="mlp-kicker">CLAIM YOUR AUDIT</div>
+      <h2>Your full SEO audit: $1</h2>
+      <p>Enter your details below. You'll pick a walkthrough time on the next page.</p>
+      <span class="mlp-lock"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure checkout</span>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Full-width breakout for GHL: clears the padding and max-width GHL puts on this element's section, row and column. */
+(function () {
+  var root = document.getElementById('mlp-top');
+  if (!root) return;
+  var el = root.parentElement;
+  while (el && el !== document.body) {
+    var c = el.className || '';
+    if (typeof c === 'string' && /(^|\s)(c-section|c-row|c-column|c-wrapper|inner|container|fullSection|c-custom-code|custom-code-container)(\s|$)/.test(c)) {
+      el.style.paddingLeft = '0'; el.style.paddingRight = '0'; el.style.maxWidth = 'none';
+      if (/c-section|fullSection/.test(c)) { el.style.paddingTop = '0'; el.style.paddingBottom = '0'; }
+      el.style.overflow = 'visible';
+    }
+    el = el.parentElement;
+  }
+  /* Smooth scroll to the order form for every "Get my audit" button. */
+  document.querySelectorAll('a[href="#mlp-order"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.getElementById('mlp-order');
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+})();
+</script>
+
+<script>
+/* Live LLI results: numbers come from embeds/seo-audit/lli-results.json (updated weekly).
+   The HTML above holds the last known numbers, so the section never shows empty. */
+(function () {
+  var base = window.MLP_EMBED_BASE; if (!base) return;
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  fetch(base + 'seo-audit/lli-results.json?' + (window.MLP_EMBED_BUST || '')).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d) return;
+    var st = document.getElementById('lli-stats');
+    if (st && d.stats && d.stats.length) st.innerHTML = d.stats.map(function (s) { return '<div class="mlp-stat"><b>' + esc(s.value) + '</b><span>' + esc(s.label) + '</span></div>'; }).join('');
+    var tb = document.getElementById('lli-ranks');
+    if (tb && d.rankings && d.rankings.length) tb.innerHTML = d.rankings.map(function (k) {
+      return '<tr><td>' + esc(k.search) + '</td><td class="pos"><span class="pill' + (k.position <= 3 ? ' top' : '') + '">#' + esc(k.position) + '</span></td></tr>';
+    }).join('');
+    if (d.checked_label) {
+      var c = document.getElementById('lli-caption'); if (c) c.textContent = 'GOOGLE POSITION · ' + d.checked_label.toUpperCase();
+      var dt = document.getElementById('lli-date'); if (dt) dt.textContent = d.checked_label;
+    }
+  }).catch(function () {});
+})();
+</script>

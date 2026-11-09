@@ -1,0 +1,53 @@
+{
+  "client": "Louisville Lead Inspections",
+  "checked": "2026-11-09",
+  "checked_label": "Nov 9, 2026",
+  "stats": [
+    {
+      "value": "#1",
+      "label": "for \"louisville lead inspections\""
+    },
+    {
+      "value": "8 of 12",
+      "label": "target searches on page 1"
+    },
+    {
+      "value": "130+",
+      "label": "local articles published in 5 weeks"
+    },
+    {
+      "value": "2 weeks",
+      "label": "from launch to page 1"
+    }
+  ],
+  "rankings": [
+    {
+      "search": "louisville lead inspections",
+      "position": 1
+    },
+    {
+      "search": "pre-purchase lead inspection louisville",
+      "position": 2
+    },
+    {
+      "search": "section 8 lead inspection louisville",
+      "position": 3
+    },
+    {
+      "search": "louisville lead notice",
+      "position": 4
+    },
+    {
+      "search": "louisville lead testing rental",
+      "position": 6
+    },
+    {
+      "search": "lead inspection louisville",
+      "position": 7
+    }
+  ],
+  "page_one": 8,
+  "tracked": 12,
+  "articles": 136,
+  "updated_at": "2026-11-09T23:38:06+00:00"
+}

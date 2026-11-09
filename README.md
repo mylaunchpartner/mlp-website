@@ -124,3 +124,51 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 - Updates appear within ~5–10 minutes (GitHub Pages caching + the loader's refresh window). Hard-refresh to check sooner.
 - The GHL editor canvas doesn't run scripts. Use **Preview** to see pages.
 - This repo is public (required for free GitHub Pages). Never commit passwords, API keys or private notes.
+
+## Embeds: standalone sections for funnels and sales pages
+
+`embeds/` holds sections that drop into any GHL funnel page without the site menu or footer. Each GHL **Custom JS/HTML** element holds a two-line snippet; the section loads from this repo, so edits here go live within about 5 minutes. Use `embeds/embed.js` (not `loader.js`).
+
+| Path | What it is |
+|---|---|
+| `embeds/embed.js` | Loader for embeds. Finds every `data-mlp-embed` div on the page and fills it. |
+| `embeds/seo-audit/checkout-top.html` | $1 SEO audit checkout: hero, LLI results, what's included, how it works, why $1, order-form heading. |
+| `embeds/seo-audit/checkout-bottom.html` | $1 SEO audit checkout: FAQ and closing call to action (goes under the GHL Order Form). |
+| `embeds/seo-audit/thank-you.html` | $1 SEO audit thank-you page. |
+| `embeds/seo-audit/lli-results.json` | Louisville Lead Inspections ranking numbers shown in the results section. Updated weekly. |
+| `embeds/seo-audit/update_lli_results.py` | Rebuilds `lli-results.json` from the LLI rank log (`SEO/RANKINGS.md`). |
+
+### $1 SEO audit funnel (`/seo-audit`, `/seo-audit-thank-you`)
+
+Checkout page, top element (above the GHL Order Form):
+
+```html
+<div data-mlp-embed="seo-audit/checkout-top"></div>
+<script src="https://mylaunchpartner.github.io/mlp-website/embeds/embed.js"></script>
+```
+
+Checkout page, bottom element (below the GHL Order Form):
+
+```html
+<div data-mlp-embed="seo-audit/checkout-bottom" data-min-height="0"></div>
+<script src="https://mylaunchpartner.github.io/mlp-website/embeds/embed.js"></script>
+```
+
+Thank-you page:
+
+```html
+<div data-mlp-embed="seo-audit/thank-you"></div>
+<script src="https://mylaunchpartner.github.io/mlp-website/embeds/embed.js"></script>
+```
+
+Page Custom CSS on the checkout page keeps the order form readable: `.c-order-form { width: 100% !important; max-width: 680px !important; margin: 8px auto 40px !important; box-sizing: border-box; }`. In the funnel settings, leave **Optimize JavaScript** off so the sections load right away.
+
+### Weekly LLI numbers
+
+Every Monday after the LLI rank check, a scheduled task runs:
+
+```bash
+python3 embeds/seo-audit/update_lli_results.py "<LLI folder>/SEO/RANKINGS.md" --articles <published LLI posts>
+```
+
+then commits and pushes `lli-results.json`. Only real rank-check numbers go in; the page keeps its last numbers if the file can't load.

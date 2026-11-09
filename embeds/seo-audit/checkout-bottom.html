@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  html, body { overflow-x: hidden; }
+  .mlp-wrap2 { --navy:#0B1026; --ink:#283052; --muted:#5B6482; --violet:#7C3AED; --violet-2:#5B21B6; --lilac:#C4B5FD; --ground:#F6F7FC; --line:#E2E5F0;
+    position: relative; left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .mlp-wrap2 *, .mlp-wrap2 *::before, .mlp-wrap2 *::after { box-sizing: border-box; }
+  .mlp-wrap2 h2, .mlp-wrap2 h3, .mlp-wrap2 p { margin: 0; }
+  .mlp-wrap2 .mlp-in { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+  .mlp-faq { background: var(--ground); padding: 52px 0; }
+  .mlp-faq h2 { font-weight: 800; font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -.02em; color: var(--navy); text-align: center; margin-bottom: 22px; }
+  .mlp-q { background: #fff; border: 1.5px solid var(--line); border-radius: 16px; margin-bottom: 12px; overflow: hidden; }
+  .mlp-q summary { list-style: none; cursor: pointer; padding: 20px 56px 20px 22px; font-weight: 700; font-size: 17px; color: var(--navy); position: relative; }
+  .mlp-q summary::-webkit-details-marker { display: none; }
+  .mlp-q summary::after { content: '+'; position: absolute; right: 22px; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 500; color: var(--violet); }
+  .mlp-q[open] summary::after { content: '–'; }
+  .mlp-q summary:focus-visible { outline: 3px solid var(--lilac); outline-offset: -3px; }
+  .mlp-q p { padding: 0 22px 20px; color: var(--muted); font-size: 16px; }
+  .mlp-close { position: relative; overflow: hidden; background: var(--navy); color: #fff; text-align: center; padding: 52px 0; }
+  .mlp-close .g { position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(110px); left: 50%; top: -300px; transform: translateX(-50%); background: rgba(124,58,237,.5); pointer-events: none; }
+  .mlp-close h2 { position: relative; font-weight: 800; font-size: clamp(28px, 4vw, 44px); letter-spacing: -.02em; }
+  .mlp-close p { position: relative; margin-top: 12px; color: #D4D8E8; font-size: 18px; }
+  .mlp-close a.btn { position: relative; display: inline-flex; gap: 10px; margin-top: 26px; background: var(--violet); color: #fff !important; text-decoration: none; font-weight: 800; font-size: 18px; padding: 17px 30px; border-radius: 999px; box-shadow: 0 10px 30px rgba(124,58,237,.45); }
+  .mlp-close a.btn:hover { background: var(--violet-2); }
+  .mlp-foot { position: relative; margin-top: 32px; font-size: 13px; color: #8E95B2; }
+  .mlp-foot a { color: #AEB4CC; }
+  @media (max-width: 860px) { .mlp-faq, .mlp-close { padding: 40px 0; } }
+</style>
+
+<div class="mlp-wrap2" id="mlp-bottom">
+  <section class="mlp-faq">
+    <div class="mlp-in">
+      <h2>Questions</h2>
+      <details class="mlp-q"><summary>Is it really just $1?</summary><p>Yes. One charge of $1. No subscription, no trial that turns into a monthly bill.</p></details>
+      <details class="mlp-q"><summary>What's the catch?</summary><p>No catch. We do this because owners who see their audit tend to want help fixing it. If you don't, you keep the audit and that's that.</p></details>
+      <details class="mlp-q"><summary>How fast do I get it?</summary><p>Within [3] business days of getting your details. We'll walk you through it on a quick call so nothing is left to guesswork.</p></details>
+      <details class="mlp-q"><summary>Do I have to sign up for anything after?</summary><p>No. If you want us to do the work, we'll show you our performance plan on the call. You only pay performance fees when your keywords hit page 1 of Google.</p></details>
+      <details class="mlp-q"><summary>What if I don't have a website yet?</summary><p>We can still audit your Google Business Profile, your local competition and the searches you should be going after.</p></details>
+    </div>
+  </section>
+  <section class="mlp-close">
+    <div class="g" aria-hidden="true"></div>
+    <div class="mlp-in">
+      <h2>See what Google sees. For $1.</h2>
+      <p>Your full audit, in plain English, plus a walkthrough call.</p>
+      <a class="btn" href="#mlp-order">Get my audit for $1 <span aria-hidden="true">↑</span></a>
+      <div class="mlp-foot">© My Launch Partner · <a href="https://mylaunchpartner.ai">mylaunchpartner.ai</a> · <a href="[PRIVACY LINK]">Privacy</a> · <a href="[TERMS LINK]">Terms</a></div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('mlp-bottom');
+  if (!root) return;
+  var el = root.parentElement;
+  while (el && el !== document.body) {
+    var c = el.className || '';
+    if (typeof c === 'string' && /(^|\s)(c-section|c-row|c-column|c-wrapper|inner|container|fullSection|c-custom-code|custom-code-container)(\s|$)/.test(c)) {
+      el.style.paddingLeft = '0'; el.style.paddingRight = '0'; el.style.maxWidth = 'none';
+      if (/c-section|fullSection/.test(c)) { el.style.paddingTop = '0'; el.style.paddingBottom = '0'; }
+      el.style.overflow = 'visible';
+    }
+    el = el.parentElement;
+  }
+  root.querySelectorAll('a[href="#mlp-order"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.getElementById('mlp-order');
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+})();
+</script>
