@@ -23,7 +23,7 @@ const b64 = f => fs.readFileSync(f).toString('base64');
 const font = (fam, w, file) => `@font-face{font-family:'${fam}';font-weight:${w};src:url(data:font/woff2;base64,${b64(path.join(HERE, 'fonts', file))}) format('woff2');}`;
 const fonts = [400, 500, 600, 700, 800].map(w => font('Jakarta', w, `plus-jakarta-sans-latin-${w}-normal.woff2`)).join('')
   + [500, 700].map(w => font('Mono', w, `jetbrains-mono-latin-${w}-normal.woff2`)).join('');
-const logoFile = path.join(HERE, '..', 'assets', 'logo.png');
+const logoFile = fs.existsSync(path.join(HERE, 'logo-small.png')) ? path.join(HERE, 'logo-small.png') : path.join(HERE, '..', 'assets', 'logo.png');
 const logo = fs.existsSync(logoFile) ? `data:image/png;base64,${b64(logoFile)}` : '';
 
 const fmtDate = d => new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -83,7 +83,7 @@ const short = sec('THE SHORT VERSION', 'What we found', `
     <div><div class="fix-t">${esc(f.title)}</div><p>${esc(f.why)}</p>
     <div class="fix-meta"><span class="chip ${f.impact === 'High' ? 'violet' : 'blue'}">${esc(f.impact)} impact</span>${f.effort ? `<span class="chip grey">${esc(f.effort)}</span>` : ''}</div></div></div>`).join('')}</div>`);
 
-const rankings = sec('WHERE YOU SHOW UP', 'Your 5 searches on Google', `
+const rankings = sec('WHERE YOU SHOW UP', `Your ${A.rankings.length} searches on Google`, `
   ${A.maps_checked === false
     ? `<p class="sub">We searched each of these as a customer in ${esc(B.city || 'your area')} would and checked where your website shows up. We'll go over your Google Maps placement together on the walkthrough call.</p>`
     : `<p class="sub">We searched each of these as a customer in ${esc(B.city || 'your area')} would. "Search results" is the regular list of websites. "Map results" is the Google Maps list, where the top 3 get most of the calls.</p>`}
@@ -140,12 +140,12 @@ h1, h2, h3, p { margin: 0; }
 .chip.warn { background: #FEF3C7; color: #B45309; } .chip.bad { background: #FEE2E2; color: #B91C1C; }
 .chip.violet { background: #EDE9FE; color: #6D28D9; } .chip.blue { background: #E0F2FE; color: #0369A1; } .chip.grey { background: var(--ground); color: var(--muted); }
 .bar { height: 7px; background: var(--line); border-radius: 99px; overflow: hidden; } .bar i { display: block; height: 100%; border-radius: 99px; background: var(--violet); }
-.glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+.glow { position: absolute; border-radius: 50%; }
 
 /* cover */
 .cover { position: relative; overflow: hidden; height: 11in; background: var(--navy); color: #fff; padding: .7in; display: flex; flex-direction: column; break-after: page; }
-.cover .glow.a { width: 6in; height: 6in; left: -2in; top: -2.6in; background: rgba(124,58,237,.55); }
-.cover .glow.b { width: 5in; height: 5in; right: -2in; bottom: -2in; background: rgba(34,211,238,.28); }
+.cover .glow.a { width: 9in; height: 9in; left: -3.5in; top: -4in; background: radial-gradient(circle, rgba(124,58,237,.55) 0%, rgba(124,58,237,0) 65%); }
+.cover .glow.b { width: 8in; height: 8in; right: -3.5in; bottom: -3.5in; background: radial-gradient(circle, rgba(34,211,238,.3) 0%, rgba(34,211,238,0) 65%); }
 .brand { position: relative; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 13pt; }
 .brand img { width: 30px; height: 30px; }
 .cv-body { position: relative; margin-top: auto; margin-bottom: auto; }
@@ -193,7 +193,7 @@ tr { break-inside: avoid; }
 .pl { display: grid; grid-template-columns: 1.15in 1fr; gap: 14px; border-left: 3px solid var(--violet); padding: 4px 0 4px 14px; break-inside: avoid; }
 .pl-w { font-family: Mono; font-weight: 700; font-size: 9pt; color: var(--violet); padding-top: 2px; } .pl-t { color: var(--ink); }
 .cta { position: relative; overflow: hidden; background: var(--navy); color: #fff; border-radius: 20px; padding: 26px 28px; break-inside: avoid; }
-.cta .glow.a { width: 3.5in; height: 3.5in; right: -1in; top: -1.8in; background: rgba(124,58,237,.6); }
+.cta .glow.a { width: 6in; height: 6in; right: -2.2in; top: -3.2in; background: radial-gradient(circle, rgba(124,58,237,.6) 0%, rgba(124,58,237,0) 65%); }
 .cta > *:not(.glow) { position: relative; } .cta h2 { margin-top: 8px; font-weight: 800; font-size: 20pt; letter-spacing: -.02em; }
 .cta p { margin-top: 8px; color: #D4D8E8; } .cta-line { margin-top: 14px; font-family: Mono; font-weight: 700; color: var(--lilac); }
 </style></head><body>${cover}${short}${rankings}${website}${gbp}${opps}${plan}</body></html>`;
