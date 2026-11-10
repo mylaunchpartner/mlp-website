@@ -5,7 +5,7 @@
   Needs Playwright with Chromium (preinstalled in Claude's workspace; elsewhere: npm i playwright && npx playwright install chromium).
 
   The JSON holds all content (see samples/sample-audit.json for every field). This file holds layout only.
-  Status words: pass | warn | fail.  Rankings: organic / maps = position number, or null when not in the top results checked.
+  Status words: pass | warn | fail.  Set "maps_checked": false when map positions weren't checked (cloud run); the Map results column is then hidden.  Rankings: organic / maps = position number, or null when not in the top results checked.
   Client-facing rules: never mention AI. Never invent volumes, reviews or rankings. Leave a field out rather than guess.
 */
 const fs = require('fs');
@@ -84,9 +84,11 @@ const short = sec('THE SHORT VERSION', 'What we found', `
     <div class="fix-meta"><span class="chip ${f.impact === 'High' ? 'violet' : 'blue'}">${esc(f.impact)} impact</span>${f.effort ? `<span class="chip grey">${esc(f.effort)}</span>` : ''}</div></div></div>`).join('')}</div>`);
 
 const rankings = sec('WHERE YOU SHOW UP', 'Your 5 searches on Google', `
-  <p class="sub">We searched each of these as a customer in ${esc(B.city || 'your area')} would. "Search results" is the regular list of websites. "Map results" is the Google Maps list, where the top 3 get most of the calls.</p>
-  <table><thead><tr><th>Search</th><th>Search results</th><th>Map results</th><th>Who's winning it</th></tr></thead><tbody>
-  ${A.rankings.map(r => `<tr><td class="q">"${esc(r.query)}"</td><td>${pos(r.organic)}</td><td>${mapsPos(r.maps)}</td><td>${esc(r.leader || '')}</td></tr>`).join('')}
+  ${A.maps_checked === false
+    ? `<p class="sub">We searched each of these as a customer in ${esc(B.city || 'your area')} would and checked where your website shows up. We'll go over your Google Maps placement together on the walkthrough call.</p>`
+    : `<p class="sub">We searched each of these as a customer in ${esc(B.city || 'your area')} would. "Search results" is the regular list of websites. "Map results" is the Google Maps list, where the top 3 get most of the calls.</p>`}
+  <table><thead><tr><th>Search</th><th>Search results</th>${A.maps_checked === false ? '' : '<th>Map results</th>'}<th>Who's winning it</th></tr></thead><tbody>
+  ${A.rankings.map(r => `<tr><td class="q">"${esc(r.query)}"</td><td>${pos(r.organic)}</td>${A.maps_checked === false ? '' : `<td>${mapsPos(r.maps)}</td>`}<td>${esc(r.leader || '')}</td></tr>`).join('')}
   </tbody></table>
   ${A.competitors && A.competitors.length ? (() => {
     const max = Math.max(...A.competitors.map(c => c.reviews || 0), 1);
