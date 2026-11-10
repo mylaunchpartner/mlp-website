@@ -5,7 +5,7 @@ This is the single source of truth. The `mlp-seo-audit` skill and the "MLP $1 SE
 
 ## Flow
 1. Customer pays $1 at mylaunchpartner.ai/audit and lands on /seo-audit-thank-you.
-2. They fill in the intake form "MLP - $1 SEO Audit Intake" (GHL form `uPU1IDqHGhLTgbnVMSGV`).
+2. They fill in the intake form "MLP - $1 SEO Audit Intake" (GHL form `uPU1IDqHGhLTgbnVMSGV`), which redirects to /seo-audit-form-received, where they book the walkthrough on the "MLP SEO Audit Walkthrough" calendar (Samantha, 30 min).
 3. GHL workflow "MLP - $1 SEO Audit - Run audit" fires on Form Submitted and POSTs the answers to the scheduled task's API trigger.
 4. That starts a fresh Claude session, which follows the steps below.
 5. Samantha reviews the PDF and the client email draft, then sends it herself.
