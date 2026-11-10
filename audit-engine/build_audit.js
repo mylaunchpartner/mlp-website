@@ -83,7 +83,7 @@ const short = sec('THE SHORT VERSION', 'What we found', `
     <div><div class="fix-t">${esc(f.title)}</div><p>${esc(f.why)}</p>
     <div class="fix-meta"><span class="chip ${f.impact === 'High' ? 'violet' : 'blue'}">${esc(f.impact)} impact</span>${f.effort ? `<span class="chip grey">${esc(f.effort)}</span>` : ''}</div></div></div>`).join('')}</div>`);
 
-const rankings = sec('WHERE YOU SHOW UP', 'Your 5 searches on Google', `
+const rankings = sec('WHERE YOU SHOW UP', `Your ${A.rankings.length} searches on Google`, `
   ${A.maps_checked === false
     ? `<p class="sub">We searched each of these as a customer in ${esc(B.city || 'your area')} would and checked where your website shows up. We'll go over your Google Maps placement together on the walkthrough call.</p>`
     : `<p class="sub">We searched each of these as a customer in ${esc(B.city || 'your area')} would. "Search results" is the regular list of websites. "Map results" is the Google Maps list, where the top 3 get most of the calls.</p>`}
