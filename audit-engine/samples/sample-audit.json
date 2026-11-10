@@ -1,0 +1,70 @@
+{
+  "_note": "SAMPLE DATA for layout testing only. Fictional business, made-up findings.",
+  "business": {
+    "name": "Canyon Creek Plumbing",
+    "website": "canyoncreekplumbing.com",
+    "city": "Flagstaff, AZ",
+    "contact_name": "Jordan",
+    "gbp": "https://maps.google.com/?cid=0000000000"
+  },
+  "date": "2026-11-09",
+  "score": {
+    "overall": 46,
+    "categories": [
+      { "name": "Google rankings", "score": 28, "note": "Not on page 1 for any of your 5 searches" },
+      { "name": "Google Business Profile", "score": 55, "note": "Listed, but thin: 14 reviews, few photos" },
+      { "name": "Website health", "score": 61, "note": "Loads slowly on phones; missing key page titles" },
+      { "name": "Content", "score": 38, "note": "One page covers every service" }
+    ]
+  },
+  "summary": "Customers in Flagstaff searching for a plumber are finding three competitors before they find you. Your website works, but Google can't tell which services you offer or where, and your Google Business Profile has a fraction of the reviews the top listings have. The good news: every one of these is fixable, and two of them take less than a week.",
+  "top_fixes": [
+    { "title": "Give each service its own page", "why": "Right now \"water heater repair\", \"drain cleaning\" and \"emergency plumber\" all point to your homepage. Google ranks pages, not businesses, so each search needs a page built for it.", "impact": "High", "effort": "2-3 weeks" },
+    { "title": "Close the review gap", "why": "The top 3 plumbers in the map results average 180 reviews. You have 14. A simple text-after-every-job request closes this in a few months.", "impact": "High", "effort": "Ongoing, 5 min/day" },
+    { "title": "Fix your page titles", "why": "Your homepage title is just \"Home\". Google shows this in search results, so it tells nobody what you do or where.", "impact": "Medium", "effort": "1 hour" }
+  ],
+  "rankings": [
+    { "query": "plumber flagstaff", "organic": null, "maps": 7, "leader": "High Country Plumbing" },
+    { "query": "emergency plumber flagstaff", "organic": null, "maps": null, "leader": "Pine Ridge Rooter" },
+    { "query": "water heater repair flagstaff", "organic": 24, "maps": 9, "leader": "High Country Plumbing" },
+    { "query": "drain cleaning flagstaff", "organic": null, "maps": 11, "leader": "Pine Ridge Rooter" },
+    { "query": "flagstaff plumbing company", "organic": 14, "maps": 6, "leader": "Mesa Pipe Co." }
+  ],
+  "competitors": [
+    { "name": "High Country Plumbing", "website": "highcountryplumb.com", "rating": 4.8, "reviews": 212, "edge": "Separate page for every service and every nearby town" },
+    { "name": "Pine Ridge Rooter", "website": "pineridgerooter.com", "rating": 4.7, "reviews": 168, "edge": "Posts on Google weekly; 90+ photos on their profile" },
+    { "name": "Canyon Creek Plumbing (you)", "website": "canyoncreekplumbing.com", "rating": 4.9, "reviews": 14, "edge": "Best rating of the group, but too few reviews to rank", "you": true }
+  ],
+  "website": {
+    "speed": { "mobile": 41, "desktop": 78, "lcp": "5.8 s", "cls": "0.04", "inp": "180 ms" },
+    "checks": [
+      { "check": "Page titles", "status": "fail", "detail": "Homepage title is \"Home\". 4 of 6 pages share the same title." },
+      { "check": "Meta descriptions", "status": "warn", "detail": "Missing on 5 of 6 pages, so Google writes its own." },
+      { "check": "Headings (H1)", "status": "warn", "detail": "Homepage H1 is \"Welcome!\" instead of what you do and where." },
+      { "check": "Mobile friendly", "status": "pass", "detail": "Layout works on phones." },
+      { "check": "HTTPS / secure", "status": "pass", "detail": "Site is secure." },
+      { "check": "Local business markup", "status": "fail", "detail": "No LocalBusiness schema, so Google has to guess your address and hours." },
+      { "check": "Click-to-call", "status": "pass", "detail": "Phone number is tappable on mobile." },
+      { "check": "Image sizes", "status": "warn", "detail": "Hero image is 4.2 MB, the main reason the site is slow on phones." }
+    ]
+  },
+  "gbp": [
+    { "check": "Profile claimed and verified", "status": "pass", "detail": "Yes." },
+    { "check": "Primary category", "status": "pass", "detail": "Plumber." },
+    { "check": "Secondary categories", "status": "warn", "detail": "None set. Add Water heater installation service, Drainage service." },
+    { "check": "Reviews", "status": "fail", "detail": "14 reviews vs. 180 average for the top 3." },
+    { "check": "Photos", "status": "warn", "detail": "6 photos. Leaders have 60-90." },
+    { "check": "Posts", "status": "fail", "detail": "No posts in the last 90 days." },
+    { "check": "Services listed", "status": "warn", "detail": "3 services listed; you offer at least 8." }
+  ],
+  "opportunities": [
+    { "query": "water heater installation flagstaff", "note": "Weak competition: the top results are national directories, not local plumbers." },
+    { "query": "plumber sedona", "note": "You already serve Sedona but have no page for it." },
+    { "query": "tankless water heater flagstaff", "note": "Higher-ticket jobs, almost no local content written about it." }
+  ],
+  "plan": [
+    { "when": "Weeks 1-2", "what": "Fix page titles, descriptions and headings. Add local business markup. Compress images. Fill out every Google Business Profile field." },
+    { "when": "Weeks 3-6", "what": "Build a page for each core service and each nearby town. Start a review request after every job." },
+    { "when": "Weeks 7-12", "what": "Publish helpful articles around the questions customers ask. Post on your Google profile weekly. Track rankings every week." }
+  ]
+}
