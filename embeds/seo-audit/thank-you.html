@@ -46,6 +46,10 @@
   .mlp-ty .need ul { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
   .mlp-ty .need li { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; color: var(--ink); }
   .mlp-ty .need li svg { flex-shrink: 0; margin-top: 3px; }
+  .mlp-ty [hidden] { display: none !important; }
+  .mlp-ty .need { scroll-margin-top: 16px; }
+  .mlp-ty .form-wrap { margin: 14px -12px 0; min-height: 640px; }
+  .mlp-ty .form-wrap iframe { min-height: 640px; }
 
   .mlp-ty .follow { margin: 36px 0 0; padding-bottom: 52px; text-align: center; }
   .mlp-ty .follow h2 { font-size: 24px; font-weight: 800; color: var(--navy); }
@@ -74,7 +78,7 @@
       <div class="check"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
       <div class="kicker">PAYMENT RECEIVED · $1</div>
       <h1>You're in. Your audit is on the way.</h1>
-      <p>Two quick things and we'll get started. A receipt is headed to your inbox now.</p>
+      <p>One quick form below and we'll get started. A receipt is headed to your inbox now.</p>
     </div>
   </section>
 
@@ -88,24 +92,22 @@
       <div class="step now">
         <div class="num">02</div>
         <div><div class="tag">DO THIS NOW · 2 MIN</div><h3>Tell us about your business</h3><p>We can't start your audit until we have these.</p></div>
-        <a class="btn" href="[INTAKE FORM LINK]">Fill out the form <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#mlp-intake" data-scroll>Fill out the form <span aria-hidden="true">↓</span></a>
       </div>
       <div class="step">
         <div class="num">03</div>
         <div><div class="tag">NEXT</div><h3>Book your walkthrough call</h3><p>We'll go over your audit together and show you the fastest fixes.</p></div>
-        <a class="btn ghost" href="[BOOKING LINK]">Pick a time <span aria-hidden="true">→</span></a>
+        <a class="btn ghost" id="mlp-book" href="#" hidden>Pick a time <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
-    <div class="need">
-      <h2>What we'll ask for</h2>
-      <p>Have these handy and the form takes two minutes.</p>
-      <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Your website (if you have one)</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>The city or area you serve</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>5 searches you want to show up for</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>2–3 competitors you keep losing to</li>
-      </ul>
+    <div class="need" id="mlp-intake">
+      <h2>Tell us about your business</h2>
+      <p>Two minutes. As soon as this comes in, we start your audit.</p>
+      <div class="form-wrap">
+        <iframe src="https://api.leadconnectorhq.com/widget/form/uPU1IDqHGhLTgbnVMSGV" style="width:100%;height:100%;border:none;border-radius:3px" id="inline-uPU1IDqHGhLTgbnVMSGV" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="MLP - $1 SEO Audit Intake" data-height="640" data-layout-iframe-id="inline-uPU1IDqHGhLTgbnVMSGV" data-form-id="uPU1IDqHGhLTgbnVMSGV" title="$1 SEO Audit intake form"></iframe>
+      </div>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     </div>
 
     <div class="follow">
@@ -132,5 +134,15 @@
     }
     el = el.parentElement;
   }
+  /* Booking link: set this once the walkthrough calendar exists. The button stays hidden until then. */
+  var BOOKING_URL = '';
+  var book = document.getElementById('mlp-book');
+  if (book && BOOKING_URL) { book.href = BOOKING_URL; book.hidden = false; }
+  root.querySelectorAll('a[data-scroll]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.getElementById(a.getAttribute('href').slice(1));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
 })();
 </script>
