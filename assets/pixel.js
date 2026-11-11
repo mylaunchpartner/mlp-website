@@ -4,7 +4,9 @@
      - PageView on every page (re-engagement audiences)
      - ViewContent on the $1 SEO audit checkout page
      - InitiateCheckout the first time someone starts the audit order form
-     - Purchase ($1 USD) on the audit thank-you page, once per browser session */
+     - Purchase ($1 USD) on the audit thank-you page, once per browser session
+     - Nonprofit audit funnel (/better-bridge): ViewContent, InitiateCheckout, Purchase ($5)
+   Funnels that don't use loader.js/embed.js load this file from their GHL head tracking code. */
 (function () {
   if (window.__mlpPixel) return;
   window.__mlpPixel = true;
@@ -33,15 +35,29 @@
     }
   }
 
+  // Nonprofit audit funnel (Better Bridge, "Give $5 Get an Audit")
+  var isBBThanks = /better-bridge-thank-you/.test(path);
+  var isBB = /^\/better-bridge\/?$/.test(path);
+  if (isBBThanks) {
+    var k2 = 'mlp_px_purchase_bb', d2 = false;
+    try { d2 = sessionStorage.getItem(k2) === '1'; } catch (e) {}
+    if (!d2) {
+      fbq('track', 'Purchase', { value: 5.00, currency: 'USD', content_name: 'Nonprofit Audit (Better Bridge)' });
+      try { sessionStorage.setItem(k2, '1'); } catch (e) {}
+    }
+  }
+  if (isBB) isAudit = true;
+
   if (isAudit) {
-    fbq('track', 'ViewContent', { content_name: '$1 SEO Audit', value: 1.00, currency: 'USD' });
+    var nm = isBB ? 'Nonprofit Audit (Better Bridge)' : '$1 SEO Audit', val = isBB ? 5.00 : 1.00;
+    fbq('track', 'ViewContent', { content_name: nm, value: val, currency: 'USD' });
     var started = false;
     var start = function (ev) {
       if (started) return;
       var t = ev.target;
       if (!t || !t.closest || !t.closest('form, .c-order-form, [class*="order-form"]')) return;
       started = true;
-      fbq('track', 'InitiateCheckout', { content_name: '$1 SEO Audit', value: 1.00, currency: 'USD' });
+      fbq('track', 'InitiateCheckout', { content_name: nm, value: val, currency: 'USD' });
     };
     document.addEventListener('focusin', start, true);
     document.addEventListener('click', start, true);
