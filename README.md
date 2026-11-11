@@ -16,17 +16,20 @@ Source for the mylaunchpartner.ai pages that run inside GoHighLevel. Each GHL pa
 | `pages/home.html` | Homepage content. |
 | `pages/specialty/*.html` | One file per specialty industry page. |
 | `pages/privacy-policy.html`, `pages/terms.html` | Legal pages (linked in the footer). |
+| `assets/seo.js` | Sitewide SEO: canonical, Open Graph/Twitter tags, Organization + WebSite schema on every page; FAQ, breadcrumb and Service schema built from each page's content. Loaded by `loader.js` and `embeds/embed.js`. Never overrides a tag GHL already set. |
+| `assets/og-image.jpg` | 1200×630 share image. Also set it as the Social image in each GHL page's SEO settings (Facebook and LinkedIn don't run JavaScript). |
+| `snippets/*.html` | The GHL paste-in for each website page, with a static copy of the page inside `#mlp-root` so crawlers that don't run JavaScript (ChatGPT, Perplexity, social previews) see the full text. Rebuild with `python3 tools/build_snippets.py` after changing page copy, then re-paste the changed page's snippet. |
 | `assets/pixel.js` | Meta Pixel (My Launch Partner dataset 1520209206590271). Loaded on every page by `loader.js` and `embeds/embed.js`: PageView sitewide; ViewContent + InitiateCheckout on the $1 audit checkout; Purchase ($1) on the audit thank-you page. |
 | `assets/logo.png`, `assets/favicon.png` | Logo (menu) and browser-tab icon. Favicon URL in GHL website settings: `https://mylaunchpartner.github.io/mlp-website/assets/favicon.png` |
 
 ## GHL setup (one time per page)
 
-In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS/HTML** element → paste that page's snippet. Put the SEO title and description in the page builder's **SEO & AI search optimization** panel (keep titles under 70 characters). Set the live URL in Websites → Pages → ⋮ → Settings → Path; the builder's own "URL Path/Slug" must be something different (e.g. `/home-page-terms-step`) or GHL adds a number to the path.
+In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS/HTML** element → paste that page's file from `snippets/` (the two-line versions below still work, but crawlers that don't run JavaScript see an empty page). Put the SEO title and description in the page builder's **SEO & AI search optimization** panel (keep titles under 70 characters). Set the live URL in Websites → Pages → ⋮ → Settings → Path; the builder's own "URL Path/Slug" must be something different (e.g. `/home-page-terms-step`) or GHL adds a number to the path.
 
 ### `/`
 
-- **SEO title:** My Launch Partner | Full-Stack Growth Agency
-- **SEO description:** Campaigns, video, web design and custom CRM operations from one full-stack team.
+- **SEO title:** SEO, Ads & Web Design Agency | My Launch Partner
+- **SEO description:** SEO, Meta and Google ads, video, web design and CRM from one full-stack team. Start with a $1 SEO audit: see where you rank and what to fix first.
 
 ```html
 <div id="mlp-root" data-page="home"></div>

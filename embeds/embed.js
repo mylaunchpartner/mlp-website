@@ -8,6 +8,7 @@
   var self = document.currentScript;
   var BASE = self.src.replace(/[?#].*$/, '').replace(/[^\/]*$/, '');
   if (!window.__mlpPixelTag) { window.__mlpPixelTag = 1; var px = document.createElement('script'); px.src = BASE + '../assets/pixel.js'; px.async = true; document.head.appendChild(px); } // Meta Pixel
+  if (!window.__mlpSeoTag) { window.__mlpSeoTag = 1; var sj = document.createElement('script'); sj.src = BASE + '../assets/seo.js?v=' + Math.floor(Date.now() / 300000); document.head.appendChild(sj); } // SEO tags + schema
   var BUST = 'v=' + Math.floor(Date.now() / 300000);
   window.MLP_EMBED_BASE = BASE;
   window.MLP_EMBED_BUST = BUST;
@@ -31,6 +32,7 @@
         s.text = old.text;
         old.parentNode.replaceChild(s, old);
       });
+      if (window.MLPSEO) window.MLPSEO.page(); else setTimeout(function () { window.MLPSEO && window.MLPSEO.page(); }, 1500);
       if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
     }).catch(function (err) {
       if (window.console) console.error('[MLP embed]', err);

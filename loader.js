@@ -12,6 +12,7 @@
   var self = document.currentScript;
   var BASE = self.src.replace(/[?#].*$/, '').replace(/[^\/]*$/, '');
   (function () { var p = document.createElement('script'); p.src = BASE + 'assets/pixel.js'; p.async = true; document.head.appendChild(p); })(); // Meta Pixel, sitewide
+  var seo = document.createElement('script'); seo.src = BASE + 'assets/seo.js?v=' + Math.floor(Date.now() / 300000); document.head.appendChild(seo); // SEO tags + schema
   var BUST = 'v=' + Math.floor(Date.now() / 300000); // picks up updates within ~5 min
   var page = (mount.getAttribute('data-page') || 'home').replace(/[^a-z0-9\/-]/gi, '');
 
@@ -72,6 +73,9 @@
       var link = mount.querySelector('.mlp-dd-menu a[href="/specialty-industries/' + slug + '"]');
       if (link) { link.classList.add('is-active'); link.setAttribute('aria-current', 'page'); }
     }
+
+    function pageSchema() { if (window.MLPSEO) window.MLPSEO.page(); else seo.addEventListener('load', function () { window.MLPSEO && window.MLPSEO.page(); }); }
+    pageSchema();
 
     return script(url('assets/mlp.js'));
   }).then(function () {

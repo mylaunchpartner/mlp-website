@@ -530,3 +530,9 @@ html, body { overflow-x: clip !important; }
 #mlp-fs .mlp-foot-legal a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 #mlp-fs .mlp-foot-legal a:hover { color: var(--purple); }
 #mlp-fs .mlp-foot-bot span.mlp-foot-legal { font-family: var(--font); font-size: 13.5px; letter-spacing: normal; margin-left: 8px; }
+
+/* SEO audit band (home, under services) */
+#mlp-fs #mlp-seo { background: #fff; color: var(--text); border: 1px solid rgba(99,87,246,0.18); box-shadow: 0 24px 50px -30px rgba(59,130,246,0.45); }
+#mlp-fs #mlp-seo h4 { color: var(--ink); }
+#mlp-fs #mlp-seo p { color: var(--muted); max-width: 720px; }
+#mlp-fs #mlp-seo .mlp-btn { flex-shrink: 0; }
