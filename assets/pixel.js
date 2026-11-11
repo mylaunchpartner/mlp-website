@@ -5,7 +5,7 @@
      - ViewContent on the $1 SEO audit checkout page
      - InitiateCheckout the first time someone starts the audit order form
      - Purchase ($1 USD) on the audit thank-you page, once per browser session
-     - Nonprofit audit funnel (/better-bridge): ViewContent; Lead on its thank-you page (no purchase)
+     - Better Bridge donation route to the audit (/better-bridge): ViewContent; Lead when proof is uploaded (no purchase)
    Funnels that don't use loader.js/embed.js load this file from their GHL head tracking code. */
 (function () {
   if (window.__mlpPixel) return;
@@ -35,18 +35,18 @@
     }
   }
 
-  // Nonprofit audit funnel (Better Bridge): not a purchase. Visitors upload a
-  // screenshot of their donation to Better Bridge to get a free audit.
+  // Better Bridge route to the same SEO audit: instead of paying $1, anyone (business
+  // owners, creatives) donates $5 to Better Bridge and uploads proof to get the audit free.
   //   /better-bridge            -> ViewContent
   //   /better-bridge-thank-you  -> Lead (form submitted), once per session
   if (/^\/better-bridge\/?$/.test(path)) {
-    fbq('track', 'ViewContent', { content_name: 'Nonprofit Audit (Better Bridge)' });
+    fbq('track', 'ViewContent', { content_name: 'SEO Audit via Better Bridge donation' });
   }
   if (/better-bridge-thank-you/.test(path)) {
     var k2 = 'mlp_px_lead_bb', d2 = false;
     try { d2 = sessionStorage.getItem(k2) === '1'; } catch (e) {}
     if (!d2) {
-      fbq('track', 'Lead', { content_name: 'Nonprofit Audit (Better Bridge)' });
+      fbq('track', 'Lead', { content_name: 'SEO Audit via Better Bridge donation' });
       try { sessionStorage.setItem(k2, '1'); } catch (e) {}
     }
   }
