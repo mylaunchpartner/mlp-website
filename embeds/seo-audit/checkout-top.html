@@ -101,6 +101,19 @@
     .mlp-bar-note { display: none; }
     .mlp-why { padding: 28px; }
   }
+  .mlp-tried { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
+  .mlp-tried div { background: var(--ground); border: 1.5px solid var(--line); border-radius: 16px; padding: 20px; font-size: 15px; color: var(--ink); }
+  .mlp-tried div b { display: block; font-size: 20px; color: #E11D48; margin-bottom: 6px; }
+  .mlp-wrap .mlp-turn { max-width: 720px; margin: 28px auto 0; text-align: center; font-size: 19px; color: var(--muted); }
+  .mlp-wrap .mlp-turn b { color: var(--navy); }
+  .mlp-diff { max-width: 720px; margin: 22px auto 0; text-align: center; border: 2px solid var(--violet); border-radius: 18px; padding: 22px 26px; }
+  .mlp-diff h3 { font-size: 22px; font-weight: 800; color: var(--navy); }
+  .mlp-wrap .mlp-diff p { margin-top: 6px; font-size: 16px; color: var(--ink); }
+  .mlp-guar { margin-top: 18px; display: flex; gap: 18px; align-items: center; background: var(--navy); color: #fff; border-radius: 18px; padding: 22px 26px; }
+  .mlp-guar svg { flex-shrink: 0; }
+  .mlp-guar h3 { font-size: 20px; font-weight: 800; }
+  .mlp-wrap .mlp-guar p { margin-top: 4px; font-size: 15px; color: #D4D8E8; }
+  @media (max-width: 860px) { .mlp-tried { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>
 
 <div class="mlp-wrap" id="mlp-top">
@@ -117,7 +130,7 @@
         <h1>Find out exactly why Google isn't sending you <span>customers.</span></h1>
         <p class="mlp-sub">A full SEO audit of your business for one dollar. See where you rank, who's beating you, and your fastest fixes. If you want our help after, you only pay us when you hit page 1.</p>
         <a class="mlp-cta" href="#mlp-order">Get my audit for $1 <span aria-hidden="true">→</span></a>
-        <p class="mlp-fine">One-time $1 charge · No subscription · Delivered within [3] business days</p>
+        <p class="mlp-fine">One-time $1 charge · No subscription · Delivered within 3 business days</p>
       </div>
       <div class="mlp-card" role="img" aria-label="Example audit summary with a score of 42 and four findings">
         <div class="mlp-card-top">
@@ -134,6 +147,24 @@
     </div>
   </section>
 
+
+  <section class="mlp-sec">
+    <div class="mlp-in">
+      <h2 class="mlp-h2">You've probably already tried to fix this.</h2>
+      <p class="mlp-lede">Every week you're hard to find on Google, those calls go to whoever shows up first.</p>
+      <div class="mlp-tried">
+        <div><b aria-hidden="true">✗</b>Paid an agency every month for reports you couldn't read.</div>
+        <div><b aria-hidden="true">✗</b>Boosted a few posts and hoped for the best.</div>
+        <div><b aria-hidden="true">✗</b>Installed an SEO plugin and turned all the lights green.</div>
+        <div><b aria-hidden="true">✗</b>Had a friend “redo the website.”</div>
+      </div>
+      <p class="mlp-turn"><b>And the phone still isn't ringing.</b> None of that fixed the actual reasons Google skips you.</p>
+      <div class="mlp-diff">
+        <h3>We do it differently.</h3>
+        <p>First we show you exactly what's wrong, for $1. If you want us to fix it, you don't pay us until you're on page 1.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="mlp-proof">
     <div class="mlp-in">
@@ -163,6 +194,10 @@
           </table>
           <p class="mlp-proof-note">Organic (non-map) Google results, checked weekly. Rankings move week to week; these are from our <span id="lli-date">Nov 9, 2026</span> check.</p>
         </div>
+      </div>
+      <div class="mlp-guar">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+        <div><h3>Our guarantee: no page 1, no performance fees.</h3><p>If we take on your SEO, you only pay when your keywords reach page 1 of Google. No results, no fees.</p></div>
       </div>
     </div>
   </section>
@@ -199,7 +234,7 @@
         <div class="mlp-glow a" aria-hidden="true"></div>
         <h2>Why only $1?</h2>
         <p>Because you should see the problems before anyone asks you for real money. Most owners have no idea why they're not showing up on Google. This tells you.</p>
-        <p>And if you want us to fix it, <b>you only pay when your keywords hit page 1.</b> No results, no performance fees.</p>
+        <p>And if you want us to fix it, you're covered by our guarantee: <b>you only pay when your keywords hit page 1.</b></p>
       </div>
     </div>
   </section>
