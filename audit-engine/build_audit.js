@@ -95,7 +95,7 @@ const rankings = sec('WHERE YOU SHOW UP', `Your ${A.rankings.length} searches on
     return `<h3>You vs. the competition</h3><div class="comps">${A.competitors.map(c => `<div class="comp${c.you ? ' you' : ''}">
       <div class="comp-h"><div><div class="comp-n">${esc(c.name)}</div><div class="comp-w">${esc(c.website || '')}</div></div>
       <div class="comp-r">${c.rating != null ? `<b>${c.rating}</b>★` : ''}</div></div>
-      <div class="rv"><div class="bar"><i style="width:${Math.max(2, (c.reviews || 0) / max * 100)}%"></i></div><span>${c.reviews ?? 0} reviews</span></div>
+      ${c.reviews != null ? `<div class="rv"><div class="bar"><i style="width:${Math.max(2, (c.reviews || 0) / max * 100)}%"></i></div><span>${c.reviews} reviews</span></div>` : ''}
       <p>${esc(c.edge || '')}</p></div>`).join('')}</div>`;
   })() : ''}`, { newPage: true });
 
