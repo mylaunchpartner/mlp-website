@@ -23,7 +23,7 @@
 
   var path = location.pathname.toLowerCase();
   var isThanks = /thank/.test(path) && /audit/.test(path);
-  var isAudit = !isThanks && /(^\/audit\/?$|seo-audit)/.test(path);
+  var isAudit = !isThanks && !/form-received/.test(path) && /(^\/audit\/?$|seo-audit)/.test(path);
 
   if (isThanks) {
     var key = 'mlp_px_purchase';
