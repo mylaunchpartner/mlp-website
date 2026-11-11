@@ -5,7 +5,7 @@
      - ViewContent on the $1 SEO audit checkout page
      - InitiateCheckout the first time someone starts the audit order form
      - Purchase ($1 USD) on the audit thank-you page, once per browser session
-     - Nonprofit audit funnel (/better-bridge): ViewContent, InitiateCheckout, Purchase ($5)
+     - Nonprofit audit funnel (/better-bridge): ViewContent; Lead on its thank-you page (no purchase)
    Funnels that don't use loader.js/embed.js load this file from their GHL head tracking code. */
 (function () {
   if (window.__mlpPixel) return;
@@ -35,21 +35,24 @@
     }
   }
 
-  // Nonprofit audit funnel (Better Bridge, "Give $5 Get an Audit")
-  var isBBThanks = /better-bridge-thank-you/.test(path);
-  var isBB = /^\/better-bridge\/?$/.test(path);
-  if (isBBThanks) {
-    var k2 = 'mlp_px_purchase_bb', d2 = false;
+  // Nonprofit audit funnel (Better Bridge): not a purchase. Visitors upload a
+  // screenshot of their donation to Better Bridge to get a free audit.
+  //   /better-bridge            -> ViewContent
+  //   /better-bridge-thank-you  -> Lead (form submitted), once per session
+  if (/^\/better-bridge\/?$/.test(path)) {
+    fbq('track', 'ViewContent', { content_name: 'Nonprofit Audit (Better Bridge)' });
+  }
+  if (/better-bridge-thank-you/.test(path)) {
+    var k2 = 'mlp_px_lead_bb', d2 = false;
     try { d2 = sessionStorage.getItem(k2) === '1'; } catch (e) {}
     if (!d2) {
-      fbq('track', 'Purchase', { value: 5.00, currency: 'USD', content_name: 'Nonprofit Audit (Better Bridge)' });
+      fbq('track', 'Lead', { content_name: 'Nonprofit Audit (Better Bridge)' });
       try { sessionStorage.setItem(k2, '1'); } catch (e) {}
     }
   }
-  if (isBB) isAudit = true;
 
   if (isAudit) {
-    var nm = isBB ? 'Nonprofit Audit (Better Bridge)' : '$1 SEO Audit', val = isBB ? 5.00 : 1.00;
+    var nm = '$1 SEO Audit', val = 1.00;
     fbq('track', 'ViewContent', { content_name: nm, value: val, currency: 'USD' });
     var started = false;
     var start = function (ev) {
