@@ -16,6 +16,7 @@ Source for the mylaunchpartner.ai pages that run inside GoHighLevel. Each GHL pa
 | `pages/home.html` | Homepage content. |
 | `pages/specialty/*.html` | One file per specialty industry page. |
 | `pages/privacy-policy.html`, `pages/terms.html` | Legal pages (linked in the footer). |
+| `assets/pixel.js` | Meta Pixel (My Launch Partner dataset 1520209206590271). Loaded on every page by `loader.js` and `embeds/embed.js`: PageView sitewide; ViewContent + InitiateCheckout on the $1 audit checkout; Purchase ($1) on the audit thank-you page. |
 | `assets/logo.png`, `assets/favicon.png` | Logo (menu) and browser-tab icon. Favicon URL in GHL website settings: `https://mylaunchpartner.github.io/mlp-website/assets/favicon.png` |
 
 ## GHL setup (one time per page)

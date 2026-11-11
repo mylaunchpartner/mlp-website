@@ -7,6 +7,7 @@
 (function () {
   var self = document.currentScript;
   var BASE = self.src.replace(/[?#].*$/, '').replace(/[^\/]*$/, '');
+  if (!window.__mlpPixelTag) { window.__mlpPixelTag = 1; var px = document.createElement('script'); px.src = BASE + '../assets/pixel.js'; px.async = true; document.head.appendChild(px); } // Meta Pixel
   var BUST = 'v=' + Math.floor(Date.now() / 300000);
   window.MLP_EMBED_BASE = BASE;
   window.MLP_EMBED_BUST = BUST;
