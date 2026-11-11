@@ -536,3 +536,9 @@ html, body { overflow-x: clip !important; }
 #mlp-fs #mlp-seo h4 { color: var(--ink); }
 #mlp-fs #mlp-seo p { color: var(--muted); max-width: 720px; }
 #mlp-fs #mlp-seo .mlp-btn { flex-shrink: 0; }
+
+/* links inside bands, notes and chips (SEO pages) */
+#mlp-fs .mlp-svc-band p a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+#mlp-fs #mlp-seo p a, #mlp-fs .mlp-faq-list p a, #mlp-fs .mlp-flow-note a { color: var(--purple); text-decoration: underline; text-underline-offset: 3px; }
+#mlp-fs .mlp-chips li a { color: inherit; text-decoration: none; }
+#mlp-fs .mlp-chips li a:hover { text-decoration: underline; }

@@ -12,7 +12,7 @@ Run after changing page copy, then re-paste the changed snippet(s) in GHL:
 import os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOST = 'https://mylaunchpartner.github.io/mlp-website/'
-PAGES = ['home', 'privacy-policy', 'terms'] + ['specialty/' + f[:-5] for f in sorted(os.listdir(os.path.join(ROOT, 'pages/specialty'))) if f.endswith('.html')]
+PAGES = ['home', 'seo', 'performance-based-seo', 'privacy-policy', 'terms'] + ['specialty/' + f[:-5] for f in sorted(os.listdir(os.path.join(ROOT, 'pages/specialty'))) if f.endswith('.html')]
 
 def read(p):
     return open(os.path.join(ROOT, p), encoding='utf-8').read()

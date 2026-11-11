@@ -101,6 +101,19 @@
         areaServed: { '@type': 'Country', name: 'United States' },
         url: here
       });
+    } else if (path === '/seo' || path === '/performance-based-seo') {
+      if (path === '/performance-based-seo') crumbs.push({ '@type': 'ListItem', position: 2, name: 'SEO Services', item: SITE + '/seo' });
+      crumbs.push({ '@type': 'ListItem', position: crumbs.length + 1, name: path === '/seo' ? 'SEO Services' : 'Performance-Based SEO', item: here });
+      graph.push({
+        '@type': 'Service',
+        '@id': here + '#service',
+        name: path === '/seo' ? 'SEO Services' : 'Performance-Based SEO',
+        serviceType: 'Search engine optimization',
+        description: desc || clean(h1 && h1.textContent),
+        provider: { '@id': ORG_ID },
+        areaServed: { '@type': 'Country', name: 'United States' },
+        url: here
+      });
     } else if (path !== '/') {
       crumbs.push({ '@type': 'ListItem', position: 2, name: clean(document.title.split('|')[0]), item: here });
     }
