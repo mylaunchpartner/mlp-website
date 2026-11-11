@@ -11,7 +11,13 @@
 
   var self = document.currentScript;
   var BASE = self.src.replace(/[?#].*$/, '').replace(/[^\/]*$/, '');
-  (function () { var p = document.createElement('script'); p.src = BASE + 'assets/pixel.js'; p.async = true; document.head.appendChild(p); })(); // Meta Pixel, sitewide
+  (function () { // Meta Pixel, sitewide. Loads after the page is up (or on first tap/scroll) so it doesn't slow the first paint.
+    var done = 0, ev = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+    function go() { if (done++) return; ev.forEach(function (e) { removeEventListener(e, go, true); }); var p = document.createElement('script'); p.src = BASE + 'assets/pixel.js'; p.async = true; document.head.appendChild(p); }
+    ev.forEach(function (e) { addEventListener(e, go, { capture: true, passive: true }); });
+    function later() { setTimeout(go, 2500); }
+    if (document.readyState === 'complete') later(); else addEventListener('load', later);
+  })();
   var seo = document.createElement('script'); seo.src = BASE + 'assets/seo.js?v=' + Math.floor(Date.now() / 300000); document.head.appendChild(seo); // SEO tags + schema
   var BUST = 'v=' + Math.floor(Date.now() / 300000); // picks up updates within ~5 min
   var page = (mount.getAttribute('data-page') || 'home').replace(/[^a-z0-9\/-]/gi, '');
