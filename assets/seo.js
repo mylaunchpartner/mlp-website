@@ -62,6 +62,7 @@
         logo: BASE + 'assets/logo.png',
         image: OG,
         email: 'hi@mylaunchpartner.ai',
+        telephone: '+1-928-549-8006',
         description: 'Full-stack growth agency: SEO and local search, Meta and Google ads, video creative, web design and custom CRM operations from one team.',
         founder: { '@type': 'Person', name: 'Samantha Martinez' },
         address: { '@type': 'PostalAddress', addressLocality: 'Sedona', addressRegion: 'AZ', addressCountry: 'US' },
