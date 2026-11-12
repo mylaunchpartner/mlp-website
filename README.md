@@ -140,11 +140,13 @@ In each GHL page: full-width Section, padding 0 → 1-column Row → **Custom JS
 | `embeds/embed.js` | Loader for embeds. Finds every `data-mlp-embed` div on the page and fills it. |
 | `embeds/seo-audit/checkout-top.html` | $1 SEO audit checkout: hero, LLI results, what's included, how it works, why $1, order-form heading. |
 | `embeds/seo-audit/checkout-bottom.html` | $1 SEO audit checkout: FAQ and closing call to action (goes under the GHL Order Form). |
-| `embeds/seo-audit/thank-you.html` | $1 SEO audit thank-you page. |
+| `embeds/seo-audit/thank-you.html` | $1 SEO audit thank-you page (noindex, so it keeps the two-line snippet). |
 | `embeds/seo-audit/lli-results.json` | Louisville Lead Inspections ranking numbers shown in the results section. Updated weekly. |
 | `embeds/seo-audit/update_lli_results.py` | Rebuilds `lli-results.json` from the LLI rank log (`SEO/RANKINGS.md`). |
 
 ### $1 SEO audit funnel (`/seo-audit`, `/seo-audit-thank-you`)
+
+Paste the files in `snippets/` for the two checkout elements: `embed--seo-audit--checkout-top.html` and `embed--seo-audit--checkout-bottom.html`. They hold a static copy of each section so crawlers that don't run JavaScript see the page text; embed.js swaps in the live version for visitors. Rebuild with `python3 tools/build_embed_snippets.py` after changing checkout copy, then re-paste the changed snippet in GHL and Publish. The two-line versions below still work, but crawlers then see an almost empty page.
 
 Checkout page, top element (above the GHL Order Form):
 
