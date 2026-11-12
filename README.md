@@ -1,6 +1,8 @@
 # My Launch Partner website
 
-Source for the mylaunchpartner.ai pages that run inside GoHighLevel. Each GHL page holds a two-line snippet; the design and content load from this repo, so an update here shows on every page within about 5–10 minutes. No re-pasting in GHL.
+Source for the mylaunchpartner.ai pages that run inside GoHighLevel. Each GHL page holds a two-line snippet; the design and content load from this repo, so an update here shows on every page within about 5–10 minutes.
+
+**Last step of every change that matters for Google** (copy, headings, schema, links): rebuild the snippets, re-paste each changed page's snippet in GHL, Publish, and check the live page. Claude does this as part of the change; it isn't left for later.
 
 ## How it fits together
 
