@@ -5,10 +5,15 @@ Usage:
   python3 update_lli_results.py RANKINGS.md --articles 135
 
 Reads the newest "## YYYY-MM-DD" table, keeps the searches on page one, and writes
-lli-results.json next to this script. The sales page reads that file on every load.
+lli-results.json next to this script. The $1 audit sales page reads that file on every load.
+It also rewrites the LLI proof numbers on the /seo page (pages/seo.html, the elements
+marked data-lli="..."), which loader.js serves live within about 5 minutes.
 Only real rank-check numbers go in. Nothing is estimated.
 """
 import argparse, datetime, json, pathlib, re
+
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+SEO_PAGE = ROOT / 'pages' / 'seo.html'
 
 LAUNCH = datetime.date(2026, 10, 7)        # new LLI site went live
 FIRST_PAGE_ONE = datetime.date(2026, 10, 21)  # first rank check: 8 of 12 on page one
@@ -60,6 +65,29 @@ def main():
     dest = pathlib.Path(__file__).with_name('lli-results.json')
     dest.write_text(json.dumps(out, indent=2) + '\n')
     print('Wrote %s: checked %s, %d of %d on page one, %d articles' % (dest.name, out['checked'], len(page_one), len(rows), a.articles))
+    update_seo_page(out, brand, weeks)
+
+def update_seo_page(out, brand, weeks):
+    """Fill the data-lli="..." elements on pages/seo.html with this check's numbers."""
+    if not (brand and brand['position']):
+        raise SystemExit('"%s" is not on page one this week. JSON written, /seo page left unchanged: review its brand card by hand.' % BRAND)
+    pos = brand['position']
+    values = {
+        'brand': '#%d' % pos,
+        'brand-text': 'ranks first' if pos == 1 else 'ranks #%d' % pos,
+        'page-one': '%d of %d' % (out['page_one'], out['tracked']),
+        'articles': '%d+' % (out['articles'] // 10 * 10),
+        'weeks': '%d weeks' % weeks,
+        'checked': out['checked_label'],
+    }
+    html = SEO_PAGE.read_text(encoding='utf-8')
+    for key, val in values.items():
+        pat = re.compile(r'(<(\w+)[^>]*\bdata-lli="%s"[^>]*>)[^<]*(</\2>)' % re.escape(key))
+        html, n = pat.subn(lambda m: m.group(1) + val + m.group(3), html)
+        if n != 1:
+            raise SystemExit('pages/seo.html: expected one data-lli="%s" element, found %d. Page left unchanged.' % (key, n))
+    SEO_PAGE.write_text(html, encoding='utf-8')
+    print('Updated pages/seo.html: %s' % ', '.join('%s=%s' % kv for kv in values.items()))
 
 if __name__ == '__main__':
     main()
