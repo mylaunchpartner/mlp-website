@@ -133,7 +133,7 @@ html, body { overflow-x: clip !important; }
 #mlp-fs .mlp-nav.is-scrolled { background: rgba(255,255,255,0.88); border-bottom-color: var(--line); box-shadow: 0 8px 30px -18px rgba(37,35,110,0.3); }
 #mlp-fs .mlp-nav-in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 #mlp-fs .mlp-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-#mlp-fs .mlp-logo img { height: 38px; width: auto; }
+#mlp-fs .mlp-logo img { height: 44px; width: auto; }
 #mlp-fs .mlp-logo span { font-size: 17px; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; white-space: nowrap; }
 #mlp-fs .mlp-links { display: flex; align-items: center; gap: 30px; }
 #mlp-fs .mlp-links a, #mlp-fs .mlp-dd-btn { white-space: nowrap; }
@@ -462,7 +462,7 @@ html, body { overflow-x: clip !important; }
   #mlp-fs .mlp-layer-tag { display: none; }
   #mlp-fs .mlp-stack-core { flex-direction: column; align-items: flex-start; }
   #mlp-fs .mlp-stack-core small { text-align: left; }
-  #mlp-fs .mlp-logo span { font-size: 15px; }
+  #mlp-fs .mlp-logo img { height: 38px; }
   #mlp-fs .mlp-vs { grid-template-columns: 1fr; }
   #mlp-fs .mlp-svc { padding: 28px 22px; }
   #mlp-fs .mlp-flow { grid-template-columns: 1fr 1fr; }
