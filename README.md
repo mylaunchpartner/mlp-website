@@ -22,7 +22,7 @@ Source for the mylaunchpartner.ai pages that run inside GoHighLevel. Each GHL pa
 | `assets/og-image.jpg` | 1200×630 share image. Also set it as the Social image in each GHL page's SEO settings (Facebook and LinkedIn don't run JavaScript). |
 | `snippets/*.html` | The GHL paste-in for each website page, with a static copy of the page inside `#mlp-root` so crawlers that don't run JavaScript (ChatGPT, Perplexity, social previews) see the full text. Rebuild with `python3 tools/build_snippets.py` after changing page copy, then re-paste the changed page's snippet. |
 | `assets/pixel.js` | Meta Pixel (My Launch Partner dataset 1520209206590271). Loaded on every page by `loader.js` and `embeds/embed.js`: PageView sitewide; ViewContent + InitiateCheckout on the $1 audit checkout; Purchase ($1) on the audit thank-you page. |
-| `assets/logo.png`, `assets/favicon.png` | Logo (menu) and browser-tab icon. Favicon URL in GHL website settings: `https://mylaunchpartner.github.io/mlp-website/assets/favicon.png` |
+| `assets/logo.png`, `assets/favicon.png` | Logo (menu) and browser-tab icon. Favicon URL in GHL website settings: `https://mylaunchpartner.github.io/mlp-website/assets/favicon.png?v=20261117`. When the icon changes, bump `?v=` there too, or browsers keep showing the old cached one |
 
 ## GHL setup (one time per page)
 
