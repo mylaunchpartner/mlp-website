@@ -3,7 +3,7 @@
      <div id="mlp-root" data-page="home"></div>
      <script src="https://<host>/loader.js"></script>
    This script fetches the shared design + that page's content from the
-   repo, builds the page, then runs the site behaviour and the calendar. */
+   repo, builds the page, then runs the site behaviour. */
 (function () {
   var mount = document.getElementById('mlp-root');
   if (!mount || mount.getAttribute('data-mlp-loaded')) return;
@@ -84,8 +84,6 @@
     pageSchema();
 
     return script(url('assets/mlp.js'));
-  }).then(function () {
-    return script('https://api.leadconnectorhq.com/js/form_embed.js');
   }).catch(function (err) {
     if (window.console) console.error('[MLP loader]', err);
     mount.style.minHeight = '';

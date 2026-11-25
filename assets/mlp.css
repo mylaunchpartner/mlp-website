@@ -543,3 +543,17 @@ html, body { overflow-x: clip !important; }
 #mlp-fs #mlp-seo p a, #mlp-fs .mlp-faq-list p a, #mlp-fs .mlp-flow-note a { color: var(--purple); text-decoration: underline; text-underline-offset: 3px; }
 #mlp-fs .mlp-chips li a { color: inherit; text-decoration: none; }
 #mlp-fs .mlp-chips li a:hover { text-decoration: underline; }
+
+/* Email-interest card (replaces the booking calendar) */
+#mlp-fs .mlp-interest { position: relative; z-index: 1; background: #fff; border-radius: 24px; padding: 40px 36px; box-shadow: 0 40px 80px -30px rgba(15,10,60,0.55), 0 0 0 1px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.14); }
+#mlp-fs .mlp-interest h3 { font-size: 1.6rem; margin-bottom: 10px; }
+#mlp-fs .mlp-interest p { color: var(--muted); font-size: 1rem; }
+#mlp-fs .mlp-interest ul { list-style: none; margin: 14px 0 28px; padding: 0; }
+#mlp-fs .mlp-interest li { position: relative; padding: 10px 0 10px 28px; border-top: 1px solid var(--line-soft); color: var(--text); font-size: 15px; }
+#mlp-fs .mlp-interest li::before { content: ''; position: absolute; left: 4px; top: 17px; width: 9px; height: 9px; border-radius: 50%; background: var(--grad); }
+#mlp-fs .mlp-interest .mlp-btn { width: 100%; justify-content: center; }
+#mlp-fs .mlp-interest .mlp-interest-addr { margin-top: 16px; text-align: center; font-size: 14px; }
+#mlp-fs .mlp-interest .mlp-interest-addr a { color: var(--purple); font-weight: 600; border-bottom: 1px solid currentColor; }
+/* Three service cards: let the last one span the row */
+#mlp-fs .mlp-svc-grid > .mlp-svc:last-of-type:nth-of-type(odd) { grid-column: 1 / -1; }
+@media (max-width: 640px) { #mlp-fs .mlp-interest { padding: 28px 22px; } }
